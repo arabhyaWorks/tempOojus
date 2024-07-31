@@ -108,6 +108,12 @@ dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
+    project.ext.vectoricons = [
+        iconFontNames: [ 'MaterialCommunityIcons.ttf', 'MaterialIcons.ttf', 'Ionicons.ttf', 'Feather.ttf', 'FontAwesome.ttf', 'FontAwesome5.ttf', 'AntDesign.ttf', 'Entypo.ttf', 'SimpleLineIcons.ttf', 'Octicons.ttf', 'Foundation.ttf' ] // Name of the font files you want to copy
+    ]
+
+    implementation project(':react-native-vector-icons')
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
@@ -116,3 +122,4 @@ dependencies {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
